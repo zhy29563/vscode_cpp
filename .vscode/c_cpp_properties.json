@@ -1,0 +1,113 @@
+{
+  // https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference
+  // An array of user-defined variables that will be available for substitution in the configurations via the standard
+  // environment variable syntax: ${<var>} or ${env:<var>}.
+  // ☆☆Strings and arrays of strings are accepted.
+  "env": {
+    "IncludePath": [],
+    "LibraryPath": [],
+    "Libraries": []
+  },
+  // An array of configuration objects that provide the IntelliSense engine with information about your project and your preferences.
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/include/**" //当前项目所在根目录并递归搜索子目录，也即当前workspace文件夹的路径，而且还会递归查找所有子目录。
+      ],
+      //IntelliSense(智能感知)引擎在分析文件时要使用的预处理器定义的列表。
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "compilerPath": "/usr/bin/g++",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      //IntelliSense有几种模式,Windows系统:windows-msvc-x64,Linux系统:linux-gcc-x64,macOS系统:macos-clang-x64。
+      "intelliSenseMode": "linux-gcc-x64"
+    },
+    {
+      "name": "Linux",
+      "compilerPath": "/usr/bin/gcc",
+      "compilerArgs": [
+        "-m32"
+      ],
+      "intelliSenseMode": "linux-gcc-x86",
+      "includePath": [
+        "${myIncludePath}",
+        "/usr/include"
+      ],
+      "defines": [
+        "${myDefines}"
+      ],
+      "cStandard": "gnu11",
+      "cppStandard": "gnu++14",
+      "configurationProvider": "ms-vscode.cmake-tools",
+      "forcedInclude": [
+        "${workspaceFolder}/common.h"
+      ],
+      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "dotConfig": "${workspaceFolder}/.config",
+      "mergeConfigurations": true,
+      "customConfigurationVariables": {
+        "myVar": "myvalue"
+      },
+      "browse": {
+        "path": [
+          "${myIncludePath}",
+          "/usr/include",
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": "${workspaceFolder}/.vscode/browse.vc.db"
+      }
+    },
+    {
+      "name": "Mac",
+      "compilerPath": "/usr/bin/clang",
+      "intelliSenseMode": "macos-clang-x64",
+      "includePath": [
+        "${myIncludePath}"
+      ],
+      "defines": [
+        "${myDefines}"
+      ],
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "macFrameworkPath": [
+        "/System/Library/Frameworks",
+        "/Library/Frameworks"
+      ],
+      "browse": {
+        "path": [
+          "${myIncludePath}",
+          "${workspaceFolder}"
+        ]
+      }
+    },
+    {
+      "name": "Win32",
+      "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe",
+      "intelliSenseMode": "windows-msvc-x64",
+      "includePath": [
+        "${myIncludePath}"
+      ],
+      "defines": [
+        "${myDefines}",
+        "_WINDOWS"
+      ],
+      "cStandard": "c17",
+      "cppStandard": "c++20",
+      "windowsSdkVersion": "10.0.19041.0",
+      "browse": {
+        "path": [
+          "${myIncludePath}",
+          "${workspaceFolder}"
+        ]
+      }
+    }
+  ],
+  "version": 4,
+  "enableConfigurationSquiggles": true
+}
